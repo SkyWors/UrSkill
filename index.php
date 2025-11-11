@@ -1,5 +1,5 @@
 <?php
-	$icons = explode(",", $_GET["icons"]) ?? [];
+	$icons = explode(",", $_GET["icons"] ?? "") ?? [];
 	$maxPerRow = $_GET["max_per_row"] ?? 10;
 	$backgroundColor = "#" . (isset($_GET["background_color"]) ? $_GET["background_color"] : "252525");
 
