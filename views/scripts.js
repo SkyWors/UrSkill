@@ -148,24 +148,34 @@ function generateImage() {
 
 let draggedElement = null;
 
-document.addEventListener('dragstart', (e) => {
+function dragStart(e) {
 	if (e.target.closest('.result_item') && e.target.closest('.result_item').draggable) {
 		draggedElement = e.target.closest('.result_item');
 		e.target.style.cursor = 'grabbing';
 	}
-});
+}
 
-document.addEventListener('dragend', (e) => {
-	if (e.target.closest('.result_item')) {
-		e.target.style.cursor = 'grab';
+function touchStart(e) {
+	const touch = e.touches[0];
+	const element = document.elementFromPoint(touch.clientX, touch.clientY);
+
+	if (element && element.closest('.result_item') && element.closest('.result_item').draggable) {
+		draggedElement = element.closest('.result_item');
+		e.preventDefault();
+	}
+}
+
+function dragEnd(e) {
+	if (draggedElement) {
+		draggedElement.style.cursor = 'grab';
+		draggedElement.style.opacity = '1';
 	}
 
-	if (latestClosest) {
+	if (latestClosest instanceof HTMLElement) {
 		latestClosest.style.backgroundColor = rowBackgroundColor;
 
-		e.preventDefault();
-
 		if (latestClosest && draggedElement && latestClosest !== draggedElement) {
+
 			const resultList = document.querySelector('.result_list');
 			Array.from(resultList.children).forEach(child => {
 				if (child.tagName === 'DIV' && !child.classList.contains('result_item')) {
@@ -185,16 +195,46 @@ document.addEventListener('dragend', (e) => {
 	}
 
 	draggedElement = null;
-});
+	latestClosest = null;
+}
 
-document.addEventListener('dragover', (e) => {
+function dragOver(e) {
+	e.preventDefault();
+
 	if (e.target.closest('.result_item')) {
-		e.preventDefault();
-		if (latestClosest && latestClosest !== e.target) {
+		if (latestClosest && latestClosest !== e.target.closest('.result_item')) {
 			latestClosest.style.backgroundColor = rowBackgroundColor;
 		}
-		latestClosest = e.target;
-		e.target.style.backgroundColor = "#555";
-		e.target.style.borderRadius = "10px";
+
+		latestClosest = e.target.closest('.result_item');
+		latestClosest.style.backgroundColor = "#555";
+		latestClosest.style.borderRadius = "10px";
 	}
-});
+}
+
+function touchMove(e) {
+	if (!draggedElement) return;
+
+	e.preventDefault();
+
+	const touch = e.touches[0];
+	const element = document.elementFromPoint(touch.clientX, touch.clientY);
+
+	if (element && element.closest('.result_item')) {
+		const targetElement = element.closest('.result_item');
+		if (latestClosest && latestClosest !== targetElement) {
+			latestClosest.style.backgroundColor = rowBackgroundColor;
+		}
+		latestClosest = targetElement;
+		latestClosest.style.backgroundColor = "#555";
+		latestClosest.style.borderRadius = "10px";
+	}
+}
+
+document.addEventListener('dragstart', dragStart);
+document.addEventListener('dragend', dragEnd);
+document.addEventListener('dragover', dragOver);
+
+document.addEventListener('touchstart', touchStart, { passive: false });
+document.addEventListener('touchend', dragEnd);
+document.addEventListener('touchmove', touchMove, { passive: false });
