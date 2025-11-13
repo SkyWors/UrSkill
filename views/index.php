@@ -36,6 +36,11 @@
 					}
 				?>
 			</div>
+			<p class="empty_list">No icons found.</p>
 		</div>
+
+		<footer>
+			<img src="urskill.png"> <a href="https://github.com/SkyWors/UrSkill" target="_blank">UrSkill</a> - Développé avec 🧡 par <a class="link" href="https://github.com/SkyWors" target="_blank">SkyWors</a>
+		</footer>
 	</body>
 </html>

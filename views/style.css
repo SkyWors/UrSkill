@@ -47,6 +47,7 @@ input {
 	font-size: 16px;
 	border-radius: 10px;
 	padding: 10px 15px;
+	outline: none;
 
 	&#row_number {
 		width: 80px;
@@ -55,7 +56,7 @@ input {
 	&#bg_color {
 		width: 40px;
 		height: 40px;
-		padding: 0;
+		padding: 0 2px;
 	}
 }
 
@@ -70,6 +71,7 @@ input {
 	min-height: 40px;
 	resize: none;
 	padding: 10px 15px;
+	outline: none;
 }
 
 .controls_container {
@@ -87,6 +89,17 @@ input {
 	border: 2px solid var(--border-color);
 	border-radius: 10px;
 	padding: 10px;
+	width: 100%;
+
+	.search_input {
+		width: 50%;
+	}
+
+	.empty_list {
+		display: none;
+		color: var(--text-color);
+		font-style: italic;
+	}
 }
 
 .icons_list,
@@ -118,4 +131,23 @@ input {
 	width: 50px;
 	border-radius: 10px;
 	margin: 5px;
+}
+
+footer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	margin-top: 10px;
+
+	img {
+		width: 20px;
+		height: 20px;
+	}
+
+	a {
+		color: var(--text-color);
+		text-decoration: underline;
+	}
 }
