@@ -4,6 +4,7 @@
 	--icon-item-size: 50px;
 	--border-color: #444;
 	--selected-color: #176400;
+	--font-size: 16px;
 }
 
 * {
@@ -15,7 +16,7 @@ body {
 	color: var(--text-color);
 	margin: 0;
 	padding: 40px;
-	font-size: 16px;
+	font-size: var(--font-size);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -44,7 +45,7 @@ input {
 	border: 2px solid var(--border-color);
 	background-color: var(--background-color);
 	color: var(--text-color);
-	font-size: 16px;
+	font-size: var(--font-size);
 	border-radius: 10px;
 	padding: 10px 15px;
 	outline: none;
@@ -66,7 +67,7 @@ input {
 	border: 2px solid var(--border-color);
 	background-color: var(--background-color);
 	color: var(--text-color);
-	font-size: 16px;
+	font-size: var(--font-size);
 	border-radius: 10px;
 	min-height: 40px;
 	resize: none;
@@ -149,5 +150,25 @@ footer {
 	a {
 		color: var(--text-color);
 		text-decoration: underline;
+	}
+}
+
+@media (max-width: 600px) {
+	:root {
+		--font-size: 14px;
+	}
+
+	body {
+		padding: 10px;
+	}
+
+	.result_url,
+	.search_input {
+		width: 90% !important;
+	}
+
+	.icon_container {
+		border: none;
+		padding: 0;
 	}
 }
