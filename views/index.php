@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		<div class="title">
-			<img src="urskill.png" alt="<?= APP_NAME ?> Logo">
+			<img src="assets/urskill.png" alt="<?= APP_NAME ?> Logo">
 			<h1><?= APP_NAME ?></h1>
 		</div>
 
@@ -26,7 +26,7 @@
 		</div>
 
 		<div class="icon_container">
-			<input type="text" id="search_input" class="search_input" placeholder="Rechercher..." />
+			<input type="text" id="search_input" class="search_input" placeholder="Rechercher..." autofocus />
 			<div class="icons_list">
 				<?php
 					$iconFiles = glob(__DIR__ . "/../icons/*.svg");
@@ -43,8 +43,10 @@
 			<p class="empty_list">No icons found.</p>
 		</div>
 
+		<div data-aliases='<?= file_get_contents(__DIR__ . "/../assets/aliases.json") ?>'></div>
+
 		<footer>
-			<img src="urskill.png" alt="<?= APP_NAME ?> Logo"> <a href="https://github.com/SkyWors/UrSkill" target="_blank"><?= APP_NAME ?></a> - Développé avec 🧡 par <a class="link" href="https://github.com/SkyWors" target="_blank">SkyWors</a>
+			<img src="assets/urskill.png" alt="<?= APP_NAME ?> Logo"> <a href="https://github.com/SkyWors/UrSkill" target="_blank"><?= APP_NAME ?></a> - Développé avec 🧡 par <a class="link" href="https://github.com/SkyWors" target="_blank">SkyWors</a>
 		</footer>
 	</body>
 </html>

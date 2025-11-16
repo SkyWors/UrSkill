@@ -11,6 +11,8 @@ const bgColorInput = document.getElementById("bg_color");
 const resultTextarea = document.getElementById("result_url");
 const searchInput = document.getElementById("search_input");
 
+const aliases = JSON.parse(document.querySelector("div[data-aliases]").dataset.aliases);
+
 generateImage();
 
 searchInput.addEventListener("input", (event) => {
@@ -20,7 +22,13 @@ searchInput.addEventListener("input", (event) => {
 
 	iconItems.forEach((item) => {
 		const iconName = item.getAttribute("data-icon").toLowerCase();
-		if (iconName.includes(filter)) {
+		if (
+			iconName.includes(filter)
+			|| (
+				aliases[iconName]
+				&& aliases[iconName].some(alias => alias.includes(filter))
+			)
+		) {
 			item.style.display = "";
 			empty = false;
 		} else {
@@ -36,7 +44,7 @@ searchInput.addEventListener("input", (event) => {
 });
 
 resultTextarea.addEventListener("change", () => {
-	const url = new URL(resultTextarea.value);
+	const url = new URL(resultTextarea.value.replace('<img src="', "").replace('" />', "").replace(' ', ""));
 	const iconsParam = url.searchParams.get("icons");
 	const maxPerRowParam = url.searchParams.get("max_per_row");
 	const backgroundColorParam = url.searchParams.get("background_color");
@@ -106,6 +114,7 @@ function generateImage() {
 			&& (
 				icons[icons.length - 1] === null
 				|| icons[icons.length - 1] === undefined
+				|| icons[icons.length - 1] === ""
 			)
 		)
 	) {
