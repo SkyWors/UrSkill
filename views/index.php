@@ -1,15 +1,19 @@
+<?php ob_start(callback: "ob_gzhandler"); ?>
+
+<!DOCTYPE html>
 <html lang="fr">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>UrSkill</title>
+		<meta name="darkreader-lock">
+		<title><?= APP_NAME ?></title>
 		<link rel="stylesheet" href="../views/style.css">
 		<script src="../views/scripts.js" defer></script>
 	</head>
 	<body>
 		<div class="title">
-			<img src="urskill.png">
-			<h1>UrSkill</h1>
+			<img src="urskill.png" alt="<?= APP_NAME ?> Logo">
+			<h1><?= APP_NAME ?></h1>
 		</div>
 
 		<div class="result_list"></div>
@@ -40,7 +44,9 @@
 		</div>
 
 		<footer>
-			<img src="urskill.png"> <a href="https://github.com/SkyWors/UrSkill" target="_blank">UrSkill</a> - Développé avec 🧡 par <a class="link" href="https://github.com/SkyWors" target="_blank">SkyWors</a>
+			<img src="urskill.png" alt="<?= APP_NAME ?> Logo"> <a href="https://github.com/SkyWors/UrSkill" target="_blank"><?= APP_NAME ?></a> - Développé avec 🧡 par <a class="link" href="https://github.com/SkyWors" target="_blank">SkyWors</a>
 		</footer>
 	</body>
 </html>
+
+<?php ob_end_flush(); ?>
