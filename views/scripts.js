@@ -1,5 +1,7 @@
+const windowWitdh = document.body.clientWidth;
+
 let icons = [];
-let maxPerRow = 10;
+let maxPerRow = windowWitdh >= 600 ? 10 : 5;
 let rowBackgroundColor = "#252525";
 
 let latestClosest;
