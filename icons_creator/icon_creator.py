@@ -26,7 +26,7 @@ def normalize_svg(input_path, output_path):
 		root.set("viewBox", f"{x} {y} {w} {h}")
 
 	# Compute scale to fit inside 192x192 (256 - 32*2)
-	margin = 5
+	margin = 32
 	scale = min((256 - margin * 2) / w, (256 - margin * 2) / h)
 	translate_x = margin + ((256 - margin * 2) - w * scale) / 2
 	translate_y = margin + ((256 - margin * 2) - h * scale) / 2
