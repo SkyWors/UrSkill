@@ -1,4 +1,8 @@
-<?php ob_start(callback: "ob_gzhandler"); ?>
+<?php
+	ob_start(callback: "ob_gzhandler");
+
+	$iconFiles = glob(__DIR__ . "/../icons/*.svg");
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -26,14 +30,16 @@
 		</div>
 
 		<div class="icon_container">
-			<input type="text" id="search_input" class="search_input" placeholder="Rechercher..." autofocus />
+			<div class="search_container">
+				<input type="text" id="search_input" class="search_input" placeholder="Search between <?= count($iconFiles) ?> icons..." autofocus />
+				<img src="assets/clean.png" alt="Clear" id="clear_search" class="clear_search" title="Clean search bar" />
+			</div>
 			<div class="icons_list">
 				<?php
-					$iconFiles = glob(__DIR__ . "/../icons/*.svg");
 					foreach ($iconFiles as $filePath) {
 						$iconName = basename($filePath, ".svg");
 				?>
-					<div class="icon_item" id="icon_item" data-icon="<?= htmlspecialchars($iconName) ?>" title="<?= htmlspecialchars($iconName) ?>">
+					<div class="icon_item" id="icon_item" tabindex="0" data-icon="<?= htmlspecialchars($iconName) ?>" alt="<?= htmlspecialchars($iconName) ?>">
 						<?= file_get_contents($filePath) ?>
 					</div>
 				<?php
@@ -43,7 +49,7 @@
 			<p class="empty_list">No icons found.</p>
 		</div>
 
-		<div data-aliases='<?= file_get_contents(__DIR__ . "/../assets/aliases.json") ?>'></div>
+		<div data-aliases='<?= str_replace(["\n", "\t"], "", file_get_contents(__DIR__ . "/../assets/aliases.json")) ?>'></div>
 
 		<footer>
 			<img src="assets/urskill.png" alt="<?= APP_NAME ?> Logo"> <a href="https://github.com/SkyWors/UrSkill" target="_blank"><?= APP_NAME ?></a> - Développé avec 🧡 par <a class="link" href="https://github.com/SkyWors" target="_blank">SkyWors</a>

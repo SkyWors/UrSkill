@@ -10,6 +10,7 @@ const rowInput = document.getElementById("row_number");
 const bgColorInput = document.getElementById("bg_color");
 const resultTextarea = document.getElementById("result_url");
 const searchInput = document.getElementById("search_input");
+const cleanSearchButton = document.getElementById("clear_search");
 
 const aliases = JSON.parse(document.querySelector("div[data-aliases]").dataset.aliases);
 
@@ -70,6 +71,13 @@ resultTextarea.addEventListener("change", () => {
 	generateImage();
 });
 
+cleanSearchButton.addEventListener("click", () => {
+	searchInput.value = "";
+	const event = new Event("input");
+	searchInput.dispatchEvent(event);
+	searchInput.focus();
+});
+
 const iconItems = document.querySelectorAll(".icon_item");
 iconItems.forEach((item) => {
 	item.style.backgroundColor = rowBackgroundColor;
@@ -86,7 +94,37 @@ iconItems.forEach((item) => {
 		}
 		generateImage();
 	});
+	item.addEventListener("mouseover", () => {
+		const iconName = item.getAttribute("data-icon");
+		const tooltip = document.createElement("div");
+		tooltip.classList = "icon_tooltip";
+		tooltip.innerText = upperCaseFirstLetter(iconName);
+		item.appendChild(tooltip);
+	});
+	item.addEventListener("mouseout", () => {
+		const tooltip = item.querySelectorAll(".icon_tooltip");
+		if (tooltip) {
+			tooltip.forEach((tip) => {
+				tip.remove();
+			});
+		}
+	});
 });
+
+document.addEventListener("keydown", (event) => {
+	if (
+		event.key === " "
+		&& document.hasFocus
+		&& document.activeElement.classList.contains("icon_item")
+	) {
+		event.preventDefault();
+		document.activeElement.click();
+	}
+});
+
+function upperCaseFirstLetter(string) {
+	return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 rowInput.value = maxPerRow;
 rowInput.addEventListener("change", (event) => {
