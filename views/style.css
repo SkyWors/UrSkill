@@ -212,9 +212,6 @@ footer {
 			position: static;
 			transform: translateY(0);
 			width: 90%;
-
-			.search_input {
-			}
 		}
 	}
 }
