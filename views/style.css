@@ -59,17 +59,19 @@ input {
 }
 
 .result_url {
+	font-family: monospace;
+	font-size: 14px;
 	width: 50%;
 	height: 100px;
 	border: 2px solid var(--border-color);
 	background-color: var(--background-color);
 	color: var(--text-color);
-	font-size: var(--font-size);
 	border-radius: 10px;
 	min-height: 40px;
 	resize: none;
 	padding: 10px 15px;
 	outline: none;
+	word-break: break-all;
 }
 
 .controls_container {
