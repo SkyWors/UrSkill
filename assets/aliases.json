@@ -80,5 +80,7 @@
 	"raspbian": ["linux"],
 	"redhat": ["linux"],
 	"mint": ["linux"],
-	"rocky": ["linux"]
+	"rocky": ["linux"],
+	"raspberrypi": ["linux"],
+	"nix": ["linux"]
 }
