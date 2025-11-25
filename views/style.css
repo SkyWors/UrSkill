@@ -3,6 +3,7 @@
 	--text-color: white;
 	--icon-item-size: 50px;
 	--border-color: #444;
+	--shadow-color: #44444436;
 	--selected-color: #176400;
 	--font-size: 16px;
 }
@@ -40,6 +41,7 @@ body {
 
 input {
 	border: 2px solid var(--border-color);
+	box-shadow: 0 0 40px -5px var(--shadow-color);
 	background-color: var(--background-color);
 	color: var(--text-color);
 	font-size: var(--font-size);
@@ -64,6 +66,7 @@ input {
 	width: 50%;
 	height: 100px;
 	border: 2px solid var(--border-color);
+	box-shadow: 0 0 40px -5px var(--shadow-color);
 	background-color: var(--background-color);
 	color: var(--text-color);
 	border-radius: 10px;
@@ -72,6 +75,7 @@ input {
 	padding: 10px 15px;
 	outline: none;
 	word-break: break-all;
+	margin-top: 30px;
 }
 
 .controls_container {
@@ -88,11 +92,11 @@ input {
 	align-items: center;
 	gap: 10px;
 	border: 2px solid var(--border-color);
+	box-shadow: 0 0 40px -5px var(--shadow-color);
 	border-radius: 10px;
 	padding: 30px 20px;
 	margin-top: 20px;
 	width: 100%;
-
 
 	.search_container {
 		position: absolute;
@@ -103,6 +107,7 @@ input {
 
 		.search_input {
 			width: 300px;
+			padding-right: 40px;
 		}
 
 		.clear_search {
