@@ -82,5 +82,7 @@
 	"mint": ["linux"],
 	"rocky": ["linux"],
 	"raspberrypi": ["linux"],
-	"nix": ["linux"]
+	"nix": ["linux"],
+	"gentoo": ["linux"],
+	"arch": ["linux"]
 }
