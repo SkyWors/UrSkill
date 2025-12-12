@@ -22,7 +22,7 @@ searchInput.addEventListener("input", (event) => {
 	let empty = true;
 
 	iconItems.forEach((item) => {
-		const iconName = item.getAttribute("data-icon").toLowerCase();
+		const iconName = item.dataset.icon.toLowerCase();
 		if (
 			iconName.includes(filter)
 			|| (
@@ -37,10 +37,10 @@ searchInput.addEventListener("input", (event) => {
 		}
 	});
 
-	if (!empty) {
-		document.querySelector(".empty_list").style.display = "none";
-	} else {
+	if (empty) {
 		document.querySelector(".empty_list").style.display = "block";
+	} else {
+		document.querySelector(".empty_list").style.display = "none";
 	}
 });
 
@@ -51,7 +51,7 @@ resultTextarea.addEventListener("change", () => {
 	const backgroundColorParam = url.searchParams.get("background_color");
 
 	icons = iconsParam ? iconsParam.split(",") : [];
-	maxPerRow = maxPerRowParam ? parseInt(maxPerRowParam) : 10;
+	maxPerRow = maxPerRowParam ? Number.parseInt(maxPerRowParam) : 10;
 	rowBackgroundColor = backgroundColorParam ? `#${backgroundColorParam}` : "#252525";
 
 	rowInput.value = maxPerRow;
@@ -59,7 +59,7 @@ resultTextarea.addEventListener("change", () => {
 
 	const iconItems = document.querySelectorAll(".icon_item");
 	iconItems.forEach((item) => {
-		const iconName = item.getAttribute("data-icon");
+		const iconName = item.dataset.icon;
 		if (icons.includes(iconName)) {
 			item.classList.add("selected");
 		} else {
@@ -82,7 +82,7 @@ const iconItems = document.querySelectorAll(".icon_item");
 iconItems.forEach((item) => {
 	item.style.backgroundColor = rowBackgroundColor;
 	item.addEventListener("click", () => {
-		const iconName = item.getAttribute("data-icon");
+		const iconName = item.dataset.icon;
 		const index = icons.indexOf(iconName);
 		if (index === -1) {
 			icons[icons.length] = iconName;
@@ -95,7 +95,7 @@ iconItems.forEach((item) => {
 		generateImage();
 	});
 	item.addEventListener("mouseover", () => {
-		const iconName = item.getAttribute("data-icon");
+		const iconName = item.dataset.icon;
 		const tooltip = document.createElement("div");
 		tooltip.classList = "icon_tooltip";
 		tooltip.innerText = upperCaseFirstLetter(iconName);
@@ -167,8 +167,8 @@ function generateImage() {
 
 	resultDiv.innerHTML = "";
 
-	for (i=0; i<((Math.ceil(icons.length/maxPerRow) || 1) +1) * maxPerRow; i++) {
-		if (i%maxPerRow === 0) {
+	for (let i = 0; i < ((Math.ceil(icons.length / maxPerRow) || 1) + 1) * maxPerRow; i++) {
+		if (i % maxPerRow === 0) {
 			const breakDiv = document.createElement("div");
 			breakDiv.style = "flex-basis: 100%; height: 0;";
 			resultDiv.appendChild(breakDiv);
@@ -177,15 +177,17 @@ function generateImage() {
 		div.classList = "result_item";
 		if (icons[i]) {
 			const divContainer = document.querySelector(`.icon_item[data-icon="${icons[i]}"]`);
-			const img = divContainer.querySelector("svg").cloneNode(true);
-			img.style.width = "100%";
-			img.style.height = "100%";
-			img.style.objectFit = "contain";
+			if (divContainer) {
+				const img = divContainer.querySelector("svg").cloneNode(true);
+				img.style.width = "100%";
+				img.style.height = "100%";
+				img.style.objectFit = "contain";
 
-			div.style.boxShadow = "none";
-			div.draggable = true;
-			div.style.cursor = "grab";
-			div.appendChild(img);
+				div.style.boxShadow = "none";
+				div.draggable = true;
+				div.style.cursor = "grab";
+				div.appendChild(img);
+			}
 		}
 		div.style.backgroundColor = rowBackgroundColor;
 		resultDiv.appendChild(div);

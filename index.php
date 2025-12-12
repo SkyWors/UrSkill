@@ -1,7 +1,7 @@
 <?php
 	define("APP_NAME", "UrSkill");
 
-	if (count($_GET) === 0) {
+	if (empty($_GET)) {
 		include __DIR__ . "/views/index.php";
 		exit;
 	}

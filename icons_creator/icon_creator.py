@@ -8,7 +8,6 @@ def normalize_svg(input_path, output_path):
 	root = tree.getroot()
 
 	# SVG namespace handling
-	ns = {'svg': 'http://www.w3.org/2000/svg'}
 	if root.tag.startswith("{"):
 		ns_uri = root.tag.split("}")[0].strip("{")
 		ET.register_namespace('', ns_uri)
@@ -16,9 +15,9 @@ def normalize_svg(input_path, output_path):
 		ns_uri = None
 
 	# Get or calculate viewBox
-	viewBox = root.get("viewBox")
-	if viewBox:
-		x, y, w, h = map(float, viewBox.split())
+	view_box = root.get("viewBox")
+	if view_box:
+		x, y, w, h = map(float, view_box.split())
 	else:
 		w = float(root.get("width", "256").replace("px", ""))
 		h = float(root.get("height", "256").replace("px", ""))
@@ -49,7 +48,7 @@ def normalize_svg(input_path, output_path):
 		root.insert(0, rect)
 
 	# Wrap all children except the rect in a <g> with transform
-	children = [child for child in list(root) if not child.tag.endswith("rect")]
+	children = [child for child in root if not child.tag.endswith("rect")]
 	g = ET.Element("g", {
 		"transform": f"translate({translate_x:.2f},{translate_y:.2f}) scale({scale:.5f})"
 	})
