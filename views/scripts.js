@@ -11,6 +11,41 @@ const bgColorInput = document.getElementById("bg_color");
 const resultTextarea = document.getElementById("result_url");
 const searchInput = document.getElementById("search_input");
 const cleanSearchButton = document.getElementById("clear_search");
+const resetButton = document.getElementById("reset");
+
+resetButton.addEventListener("click", () => {
+	if (!confirm("Are you sure you want to reset your settings?")) {
+		return;
+	}
+
+	localStorage.removeItem("profile");
+
+	icons = [];
+	maxPerRow = windowWitdh >= 600 ? 10 : 5;
+	rowBackgroundColor = "#252525";
+
+	rowInput.value = maxPerRow;
+	bgColorInput.value = rowBackgroundColor;
+
+	const iconItems = document.querySelectorAll(".icon_item");
+	iconItems.forEach((item) => {
+		item.classList.remove("selected");
+		item.style.backgroundColor = rowBackgroundColor;
+	});
+
+	generateImage();
+});
+
+if (localStorage.getItem("profile")) {
+	const savedProfile = localStorage.getItem("profile");
+	savedIcons = JSON.parse(savedProfile).icons;
+	if (savedIcons && Array.isArray(savedIcons)) {
+		icons = savedIcons;
+	}
+
+	maxPerRow = JSON.parse(savedProfile).max_per_row || maxPerRow;
+	rowBackgroundColor = JSON.parse(savedProfile).background_color || rowBackgroundColor;
+}
 
 const aliases = JSON.parse(document.querySelector("div[data-aliases]").dataset.aliases);
 
@@ -195,6 +230,12 @@ function generateImage() {
 
 	resultTextarea.style.height = "1px";
 	resultTextarea.style.height = (5 + resultTextarea.scrollHeight) + "px";
+
+	localStorage.setItem("profile", JSON.stringify({
+		icons: icons,
+		max_per_row: maxPerRow,
+		background_color: rowBackgroundColor,
+	}));
 }
 
 let draggedElement = null;

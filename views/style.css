@@ -84,6 +84,13 @@ input {
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
+
+	img {
+		padding-left: 15px;
+		width: 28px;
+		height: 28px;
+		cursor: pointer;
+	}
 }
 
 .icon_container {

@@ -27,6 +27,7 @@
 		<div class="controls_container">
 			<input id="row_number" type="number" min="1" step="1" />
 			<input id="bg_color" type="color" />
+			<img id="reset" src="assets/reset.png" alt="Reset" title="Reset settings"/>
 		</div>
 
 		<div class="icon_container">
