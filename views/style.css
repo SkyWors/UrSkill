@@ -57,6 +57,22 @@ input {
 		width: 40px;
 		height: 40px;
 		padding: 0 2px;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+
+.button {
+	padding: 5px;
+	border-radius: 5px;
+	transition: 200ms;
+
+	&:hover {
+		cursor: pointer;
+		background-color: var(--border-color);
+		transition: 200ms;
 	}
 }
 
@@ -85,11 +101,10 @@ input {
 	align-items: center;
 	gap: 10px;
 
-	img {
-		padding-left: 15px;
-		width: 28px;
-		height: 28px;
-		cursor: pointer;
+	.reset {
+		margin-left: 10px;
+		width: 30px;
+		height: 30px;
 	}
 }
 

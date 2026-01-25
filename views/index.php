@@ -27,13 +27,13 @@
 		<div class="controls_container">
 			<input id="row_number" type="number" min="1" step="1" />
 			<input id="bg_color" type="color" />
-			<img id="reset" src="assets/reset.png" alt="Reset" title="Reset settings"/>
+			<img class="button reset" id="reset" src="assets/reset.png" alt="Reset" title="Reset settings"/>
 		</div>
 
 		<div class="icon_container">
 			<div class="search_container">
 				<input type="text" id="search_input" class="search_input" placeholder="Search between <?= count($iconFiles) ?> icons..." autofocus />
-				<img src="assets/clean.png" alt="Clear" id="clear_search" class="clear_search" title="Clean search bar" />
+				<img class="button clear_search" id="clear_search" src="assets/clean.png" alt="Clear" title="Clean search bar" />
 			</div>
 			<div class="icons_list">
 				<?php
