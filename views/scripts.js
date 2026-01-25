@@ -43,6 +43,14 @@ if (localStorage.getItem("profile")) {
 		icons = savedIcons;
 	}
 
+	const iconItems = document.querySelectorAll(".icon_item");
+	iconItems.forEach((item) => {
+		const iconName = item.dataset.icon;
+		if (icons.includes(iconName)) {
+			item.classList.add("selected");
+		}
+	});
+
 	maxPerRow = JSON.parse(savedProfile).max_per_row || maxPerRow;
 	rowBackgroundColor = JSON.parse(savedProfile).background_color || rowBackgroundColor;
 }
