@@ -16,11 +16,7 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H "${{ secrets.REMOTE_HOST }}" >> ~/.ssh/known_hosts
+          ssh-keyscan -p ${{ secrets.REMOTE_PORT }} -H "${{ secrets.REMOTE_HOST }}" >> ~/.ssh/known_hosts
 
       - name: Deploy to Production Server
-        env:
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_PATH: ${{ secrets.REMOTE_PATH }}
-        run: ssh $REMOTE_USER@$REMOTE_HOST 'bash -c "cd $REMOTE_PATH && git reset --hard origin/main && git pull"'
+        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} -p ${{ secrets.REMOTE_PORT }} 'bash -c "cd ${{ secrets.REMOTE_PATH }} && git reset --hard origin/main && git pull"'
