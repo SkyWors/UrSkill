@@ -1,15 +1,43 @@
 :root {
-	--background-color: #1d1d1d;
-	--text-color: white;
+	--background-color: #ffffff;
+	--text-color: black;
 	--icon-item-size: 50px;
-	--border-color: #444;
-	--shadow-color: #44444436;
+	--border-color: #ccc;
+	--shadow-color: #44444433;
 	--selected-color: #176400;
 	--font-size: 16px;
+	--border-select-color: #52b241;
+
+	--dark-background-color: #1d1d1d;
+	--dark-text-color: white;
+	--dark-border-color: #444;
+	--dark-shadow-color: #44444436;
+	--dark-selected-color: #176400;
+	--dark-border-select-color: #d96c44;
+}
+
+[data-theme="dark"] {
+	--background-color: var(--dark-background-color);
+	--text-color: var(--dark-text-color);
+	--border-color: var(--dark-border-color);
+	--shadow-color: var(--dark-shadow-color);
+	--selected-color: var(--dark-selected-color);
+	--border-select-color: var(--dark-border-select-color);
+}
+
+[data-theme="system"] {
+	@media (prefers-color-scheme: dark) {
+		--background-color: var(--dark-background-color);
+		--text-color: var(--dark-text-color);
+		--border-color: var(--dark-border-color);
+		--shadow-color: var(--dark-shadow-color);
+		--selected-color: var(--dark-selected-color);
+		--border-select-color: var(--dark-border-select-color);
+	}
 }
 
 * {
-	font-family: Arial, Helvetica, sans-serif
+	font-family: "Inter", sans-serif;
 }
 
 body {
@@ -25,6 +53,49 @@ body {
 	gap: 20px;
 	user-select: none;
 	-webkit-user-select: none;
+	transition: 200ms;
+}
+
+noscript {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: #00000060;
+	backdrop-filter: blur(5px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+	font-weight: 500;
+	color: #f5eae3;
+
+	p {
+		font-size: 25px;
+	}
+}
+
+.theme_button {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	border: 0;
+	background: none;
+	color: var(--text-color);
+	font-size: 24px;
+	transition: 200ms;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&:hover {
+		background-color: var(--border-color);
+		cursor: pointer;
+	}
 }
 
 .title {
@@ -32,10 +103,13 @@ body {
 	flex-direction: row;
 	align-items: center;
 	gap: 10px;
+	background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
 
-	img {
-		width: 40px;
-		height: 40px;
+	i {
+		font-size: 40px;
 	}
 }
 
@@ -48,6 +122,7 @@ input {
 	border-radius: 10px;
 	padding: 10px 15px;
 	outline: none;
+	transition: 200ms;
 
 	&#row_number {
 		width: 80px;
@@ -92,6 +167,7 @@ input {
 	outline: none;
 	word-break: break-all;
 	margin-top: 30px;
+	transition: 200ms;
 }
 
 .controls_container {
@@ -105,6 +181,10 @@ input {
 		margin-left: 10px;
 		width: 30px;
 		height: 30px;
+		font-size: 26px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 }
 
@@ -113,9 +193,7 @@ input {
 	flex-direction: column;
 	align-items: center;
 	gap: 10px;
-	border: 2px solid var(--border-color);
-	box-shadow: 0 0 40px -5px var(--shadow-color);
-	border-radius: 10px;
+	border-top: 2px solid #444;
 	padding: 30px 20px;
 	margin-top: 20px;
 	width: 100%;
@@ -136,6 +214,7 @@ input {
 			position: absolute;
 			width: 18px;
 			height: 18px;
+			font-size: 18px;
 			right: 15px;
 			cursor: pointer;
 		}
@@ -165,6 +244,7 @@ input {
 		cursor: pointer;
 		border-radius: 10px;
 		margin: 5px;
+		box-shadow: 0 2px 8px #00000026;
 
 		svg {
 			width: 100%;
@@ -172,7 +252,7 @@ input {
 		}
 
 		&.selected {
-			box-shadow: 0 0 5px 2px var(--selected-color);
+			box-shadow: 0 0 0 2px var(--border-select-color);
 		}
 
 		.icon_tooltip {
@@ -186,6 +266,10 @@ input {
 			white-space: nowrap;
 			pointer-events: none;
 		}
+
+		&:hover {
+		    transform: scale(1.05);
+		}
 	}
 }
 
@@ -194,9 +278,14 @@ input {
 	width: 50px;
 	border-radius: 10px;
 	margin: 5px;
+	box-shadow: 0 2px 8px #00000026;
 
 	svg {
 		pointer-events: none;
+	}
+
+	&:hover {
+		transform: scale(1.05);
 	}
 }
 
@@ -208,9 +297,8 @@ footer {
 	gap: 6px;
 	margin-top: 10px;
 
-	img {
-		width: 20px;
-		height: 20px;
+	i {
+		font-size: 20px;
 	}
 
 	a {

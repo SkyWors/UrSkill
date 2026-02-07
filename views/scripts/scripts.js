@@ -1,8 +1,13 @@
 const windowWitdh = document.body.clientWidth;
+const darkModeMql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
 
 let icons = [];
 let maxPerRow = windowWitdh >= 600 ? 10 : 5;
 let rowBackgroundColor = "#252525";
+
+if (darkModeMql && !darkModeMql.matches) {
+	rowBackgroundColor = "#decfcf";
+}
 
 let latestClosest;
 
@@ -23,6 +28,9 @@ resetButton.addEventListener("click", () => {
 	icons = [];
 	maxPerRow = windowWitdh >= 600 ? 10 : 5;
 	rowBackgroundColor = "#252525";
+	if (darkModeMql && !darkModeMql.matches) {
+		rowBackgroundColor = "#decfcf";
+	}
 
 	rowInput.value = maxPerRow;
 	bgColorInput.value = rowBackgroundColor;
@@ -95,7 +103,7 @@ resultTextarea.addEventListener("change", () => {
 
 	icons = iconsParam ? iconsParam.split(",") : [];
 	maxPerRow = maxPerRowParam ? Number.parseInt(maxPerRowParam) : 10;
-	rowBackgroundColor = backgroundColorParam ? `#${backgroundColorParam}` : "#252525";
+	rowBackgroundColor = backgroundColorParam ? `#${backgroundColorParam}` : ((darkModeMql && !darkModeMql.matches) ? "#252525" : "#decfcf");
 
 	rowInput.value = maxPerRow;
 	bgColorInput.value = rowBackgroundColor;
@@ -226,7 +234,6 @@ function generateImage() {
 				img.style.height = "100%";
 				img.style.objectFit = "contain";
 
-				div.style.boxShadow = "none";
 				div.draggable = true;
 				div.style.cursor = "grab";
 				div.appendChild(img);
