@@ -16,6 +16,8 @@
 	"chromium": ["browser", "google"],
 	"firefox": ["browser", "mozilla firefox"],
 	"safari": ["browser", "apple safari"],
+	"arc": ["browser"],
+	"zen": ["browser"],
 
 	"webstorm": ["jetbrains webstorm", "ide"],
 	"pycharm": ["jetbrains pycharm", "ide"],
@@ -24,6 +26,15 @@
 	"goland": ["jetbrains goland", "ide"],
 	"rider": ["jetbrains rider", "ide"],
 	"rubymine": ["jetbrains ruby mine", "ide"],
+
+	"teams": ["microsoft", "office"],
+
+	"writer": ["libreoffice"],
+	"impress": ["libreoffice"],
+	"calc": ["libreoffice"],
+	"draw": ["libreoffice"],
+	"math": ["libreoffice"],
+	"base": ["libreoffice"],
 
 	"graphql": ["gql"],
 	"aws": ["amazon web services", "amazon"],

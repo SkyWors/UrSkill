@@ -1,0 +1,327 @@
+<svg
+   fill="none"
+   viewBox="0 0 256 256"
+   width="256"
+   height="256"
+   version="1.1"
+   id="svg38"
+   sodipodi:docname="teams.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" fill="{color}" rx="60" />
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="3.1210938"
+     inkscape:cx="127.8398"
+     inkscape:cy="128"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg38" />
+  <g
+     transform="matrix(5.05263,0,0,5.05263,17.978303,11.78951)"
+     id="g38">
+    <path
+       fill="url(#teams_a)"
+       d="m 21.9999,20 h 12 c 3.3137,0 6,2.6863 6,6 v 10 c 0,3.3137 -2.6863,6 -6,6 -3.3137,0 -6,-2.6863 -6,-6 V 26 c 0,-3.3137 -2.6863,-6 -6,-6"
+       id="path2"
+       style="fill:url(#teams_a)" />
+    <path
+       fill="url(#teams_b)"
+       d="m 7.99988,24 c 0,-3.3137 2.68632,-6 6.00002,-6 h 8 c 3.3137,0 6,2.6863 6,6 v 12 c 0,3.3137 2.6863,6 6,6 l -16.0001,-1e-4 c -5.5228,0 -9.99992,-4.4771 -9.99992,-10 z"
+       id="path3"
+       style="fill:url(#teams_b)" />
+    <path
+       fill="url(#teams_c)"
+       fill-opacity="0.7"
+       d="m 7.99988,24 c 0,-3.3137 2.68632,-6 6.00002,-6 h 8 c 3.3137,0 6,2.6863 6,6 v 12 c 0,3.3137 2.6863,6 6,6 l -16.0001,-1e-4 c -5.5228,0 -9.99992,-4.4771 -9.99992,-10 z"
+       id="path4"
+       style="fill:url(#teams_c)" />
+    <path
+       fill="url(#teams_d)"
+       fill-opacity="0.7"
+       d="m 7.99988,24 c 0,-3.3137 2.68632,-6 6.00002,-6 h 8 c 3.3137,0 6,2.6863 6,6 v 12 c 0,3.3137 2.6863,6 6,6 l -16.0001,-1e-4 c -5.5228,0 -9.99992,-4.4771 -9.99992,-10 z"
+       id="path5"
+       style="fill:url(#teams_d)" />
+    <path
+       fill="url(#teams_e)"
+       d="m 32.9999,18 c 2.7614,0 5,-2.2386 5,-5 0,-2.7614 -2.2386,-5 -5,-5 -2.7614,0 -5,2.2386 -5,5 0,2.7614 2.2386,5 5,5"
+       id="path6"
+       style="fill:url(#teams_e)" />
+    <path
+       fill="url(#teams_f)"
+       fill-opacity="0.46"
+       d="m 32.9999,18 c 2.7614,0 5,-2.2386 5,-5 0,-2.7614 -2.2386,-5 -5,-5 -2.7614,0 -5,2.2386 -5,5 0,2.7614 2.2386,5 5,5"
+       id="path7"
+       style="fill:url(#teams_f)" />
+    <path
+       fill="url(#teams_g)"
+       fill-opacity="0.4"
+       d="m 32.9999,18 c 2.7614,0 5,-2.2386 5,-5 0,-2.7614 -2.2386,-5 -5,-5 -2.7614,0 -5,2.2386 -5,5 0,2.7614 2.2386,5 5,5"
+       id="path8"
+       style="fill:url(#teams_g)" />
+    <path
+       fill="url(#teams_h)"
+       d="m 17.9999,16 c 3.3137,0 6,-2.6863 6,-6 0,-3.31371 -2.6863,-6 -6,-6 -3.3137,0 -6,2.68629 -6,6 0,3.3137 2.6863,6 6,6"
+       id="path9"
+       style="fill:url(#teams_h)" />
+    <path
+       fill="url(#teams_i)"
+       fill-opacity="0.6"
+       d="m 17.9999,16 c 3.3137,0 6,-2.6863 6,-6 0,-3.31371 -2.6863,-6 -6,-6 -3.3137,0 -6,2.68629 -6,6 0,3.3137 2.6863,6 6,6"
+       id="path10"
+       style="fill:url(#teams_i)" />
+    <path
+       fill="url(#teams_j)"
+       fill-opacity="0.5"
+       d="m 17.9999,16 c 3.3137,0 6,-2.6863 6,-6 0,-3.31371 -2.6863,-6 -6,-6 -3.3137,0 -6,2.68629 -6,6 0,3.3137 2.6863,6 6,6"
+       id="path11"
+       style="fill:url(#teams_j)" />
+    <defs
+       id="defs38">
+      <radialGradient
+         id="teams_a"
+         cx="0"
+         cy="0"
+         r="1"
+         gradientTransform="matrix(13.4784,0,0,33.2694,39.7967,22.1739)"
+         gradientUnits="userSpaceOnUse">
+        <stop
+           stop-color="#a98aff"
+           id="stop12" />
+        <stop
+           offset=".14"
+           stop-color="#8c75ff"
+           id="stop13" />
+        <stop
+           offset=".565"
+           stop-color="#5f50e2"
+           id="stop14" />
+        <stop
+           offset=".9"
+           stop-color="#3c2cb8"
+           id="stop15" />
+      </radialGradient>
+      <radialGradient
+         id="teams_b"
+         cx="0"
+         cy="0"
+         r="1"
+         gradientTransform="matrix(12.187503,30.399972,-30.744422,12.325595,8.81238,16.4)"
+         gradientUnits="userSpaceOnUse">
+        <stop
+           stop-color="#85c2ff"
+           id="stop16" />
+        <stop
+           offset=".69"
+           stop-color="#7588ff"
+           id="stop17" />
+        <stop
+           offset="1"
+           stop-color="#6459fe"
+           id="stop18" />
+      </radialGradient>
+      <radialGradient
+         id="teams_d"
+         cx="0"
+         cy="0"
+         r="1"
+         gradientTransform="matrix(-7.6098399,17.647802,-14.166377,-6.1086283,27.4999,17.2)"
+         gradientUnits="userSpaceOnUse">
+        <stop
+           stop-color="#bd96ff"
+           id="stop19" />
+        <stop
+           offset=".686685"
+           stop-color="#bd96ff"
+           stop-opacity="0"
+           id="stop20" />
+      </radialGradient>
+      <radialGradient
+         id="teams_e"
+         cx="0"
+         cy="0"
+         r="1"
+         gradientTransform="matrix(0,-10,12.6216,0,32.9999,11.5714)"
+         gradientUnits="userSpaceOnUse">
+        <stop
+           offset=".268201"
+           stop-color="#6868f7"
+           id="stop21" />
+        <stop
+           offset="1"
+           stop-color="#3923b1"
+           id="stop22" />
+      </radialGradient>
+      <radialGradient
+         id="teams_f"
+         cx="0"
+         cy="0"
+         r="1"
+         gradientTransform="matrix(5.4702366,4.598475,-6.6511738,7.9120784,28.8675,10.544)"
+         gradientUnits="userSpaceOnUse">
+        <stop
+           offset=".270711"
+           stop-color="#a1d3ff"
+           id="stop23" />
+        <stop
+           offset=".813393"
+           stop-color="#a1d3ff"
+           stop-opacity="0"
+           id="stop24" />
+      </radialGradient>
+      <radialGradient
+         id="teams_g"
+         cx="0"
+         cy="0"
+         r="1"
+         gradientTransform="matrix(6.3600838,-5.6582901,13.880201,15.601752,36.9821,10.3686)"
+         gradientUnits="userSpaceOnUse">
+        <stop
+           stop-color="#e3acfd"
+           id="stop25" />
+        <stop
+           offset=".816041"
+           stop-color="#9fa2ff"
+           stop-opacity="0"
+           id="stop26" />
+      </radialGradient>
+      <radialGradient
+         id="teams_h"
+         cx="0"
+         cy="0"
+         r="1"
+         gradientTransform="matrix(0,-12,15.146,0,17.9999,8.28571)"
+         gradientUnits="userSpaceOnUse">
+        <stop
+           offset=".268201"
+           stop-color="#8282ff"
+           id="stop27" />
+        <stop
+           offset="1"
+           stop-color="#3923b1"
+           id="stop28" />
+      </radialGradient>
+      <radialGradient
+         id="teams_i"
+         cx="0"
+         cy="0"
+         r="1"
+         gradientTransform="matrix(6.5642778,5.5181648,-7.98137,9.4944482,13.0411,7.05284)"
+         gradientUnits="userSpaceOnUse">
+        <stop
+           offset=".270711"
+           stop-color="#a1d3ff"
+           id="stop29" />
+        <stop
+           offset=".813393"
+           stop-color="#a1d3ff"
+           stop-opacity="0"
+           id="stop30" />
+      </radialGradient>
+      <radialGradient
+         id="teams_j"
+         cx="0"
+         cy="0"
+         r="1"
+         gradientTransform="matrix(7.6321005,-6.7899482,16.656254,18.722117,22.7786,6.8423)"
+         gradientUnits="userSpaceOnUse">
+        <stop
+           stop-color="#e3acfd"
+           id="stop31" />
+        <stop
+           offset=".816041"
+           stop-color="#9fa2ff"
+           stop-opacity="0"
+           id="stop32" />
+      </radialGradient>
+      <radialGradient
+         id="teams_k"
+         cx="0"
+         cy="0"
+         r="1"
+         gradientTransform="matrix(16.950775,16.05955,-16.950775,16.05955,3.550367,22.965027)"
+         gradientUnits="userSpaceOnUse">
+        <stop
+           offset=".046875"
+           stop-color="#688eff"
+           id="stop33" />
+        <stop
+           offset=".946875"
+           stop-color="#230f94"
+           id="stop34" />
+      </radialGradient>
+      <radialGradient
+         id="teams_l"
+         cx="0"
+         cy="0"
+         r="1"
+         gradientTransform="matrix(0,11.241693,-13.846887,0,12.025765,32.600765)"
+         gradientUnits="userSpaceOnUse">
+        <stop
+           offset=".570647"
+           stop-color="#6965f6"
+           stop-opacity="0"
+           id="stop35" />
+        <stop
+           offset="1"
+           stop-color="#8f8fff"
+           id="stop36" />
+      </radialGradient>
+      <linearGradient
+         id="teams_c"
+         x1="20.593599"
+         x2="20.593599"
+         y1="18"
+         y2="42"
+         gradientUnits="userSpaceOnUse">
+        <stop
+           offset=".801159"
+           stop-color="#6864f6"
+           stop-opacity="0"
+           id="stop37" />
+        <stop
+           offset="1"
+           stop-color="#5149de"
+           id="stop38" />
+      </linearGradient>
+    </defs>
+    <rect
+       width="16.950788"
+       height="16.059563"
+       x="3.5503685"
+       y="22.965031"
+       fill="url(#teams_k)"
+       rx="3.4431288"
+       id="rect1"
+       style="fill:url(#teams_k);stroke-width:1.0312" />
+    <rect
+       width="16.950788"
+       height="16.059563"
+       x="3.5503685"
+       y="22.965031"
+       fill="url(#teams_l)"
+       fill-opacity="0.7"
+       rx="3.4431288"
+       id="rect2"
+       style="fill:url(#teams_l);stroke-width:1.0312" />
+    <path
+       fill="#ffffff"
+       d="m 15.4792,28.1054 h -2.4471 v 7.466 h -2.0648 v -7.466 H 8.52014 v -1.6768 h 6.95906 z"
+       id="path12" />
+  </g>
+</svg>
