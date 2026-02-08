@@ -18,6 +18,10 @@ const searchInput = document.getElementById("search_input");
 const cleanSearchButton = document.getElementById("clear_search");
 const resetButton = document.getElementById("reset");
 
+window.addEventListener("load", () => {
+	window.scrollTo(0, 0);
+});
+
 resetButton.addEventListener("click", () => {
 	if (!confirm("Are you sure you want to reset your settings?")) {
 		return;
@@ -242,9 +246,6 @@ function generateImage() {
 		div.style.backgroundColor = rowBackgroundColor;
 		resultDiv.appendChild(div);
 	}
-
-	resultTextarea.style.height = "1px";
-	resultTextarea.style.height = (5 + resultTextarea.scrollHeight) + "px";
 
 	localStorage.setItem("profile", JSON.stringify({
 		icons: icons,
