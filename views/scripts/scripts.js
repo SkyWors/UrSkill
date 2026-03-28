@@ -20,6 +20,7 @@ const resetButton = document.getElementById("reset");
 
 window.addEventListener("load", () => {
 	window.scrollTo(0, 0);
+	searchInput.focus();
 });
 
 resetButton.addEventListener("click", () => {

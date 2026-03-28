@@ -41,7 +41,7 @@
 
 		<div class="icon_container">
 			<div class="search_container">
-				<input type="text" id="search_input" class="search_input" spellcheck="false" placeholder="Search between <?= count(value: $iconFiles) ?> icons..." autofocus />
+				<input type="text" id="search_input" class="search_input" spellcheck="false" placeholder="Search between <?= count(value: $iconFiles) ?> icons..." />
 				<i class="ri-close-large-line button clear_search" id="clear_search" title="Clear search bar"></i>
 			</div>
 			<div class="icons_list">
