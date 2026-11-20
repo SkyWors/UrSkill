@@ -1,2 +1,3 @@
 .venv
 icons_creator/*.svg
+__pycache__

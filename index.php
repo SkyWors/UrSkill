@@ -7,16 +7,21 @@
 	}
 
 	$icons = explode(separator: ",", string: $_GET["icons"] ?? "") ?? [];
-	$maxPerRow = isset($_GET["max_per_row"]) ? ($_GET["max_per_row"] > 0 ? $_GET["max_per_row"] : 1) : 10;
-	$backgroundColor = "#" . (isset($_GET["background_color"]) ? $_GET["background_color"] : "252525");
+	$maxPerRow = $_GET["max_per_row"] ?? 10;
 
-	$iconSize = 10; // Icons are 256px x 256px, we reduce this size to match default browser display
-	$space = 300; // 300 is the number of pixel from x = 0 of the icon to x = 0 of the next icon, distance between icons are 300 - 256px (~ 14.7%)
+	if ($maxPerRow <= 0) {
+		$maxPerRow = 1;
+	}
 
-	$viewBoxWidth = min($maxPerRow * $space, count(value: $icons) * $space) - ($space - 256);
-	$viewBoxHeight = (ceil(num: count(value: $icons) / $maxPerRow)) * $space - ($space - 256);
-	$width = $viewBoxWidth * ($iconSize / ($space - 256));
-	$height = $viewBoxHeight * ($iconSize / ($space - 256));
+	$backgroundColor = "#" . ($_GET["background_color"] ?? "252525");
+
+	$displaySize = 10; // Icons are 256px x 256px, we reduce this size to match default browser display
+	$iconPitch = 300; // 300 is the number of pixel from x = 0 of the icon to x = 0 of the next icon, distance between icons are 300 - 256px (~ 14.7%)
+
+	$viewBoxWidth = min($maxPerRow * $iconPitch, count(value: $icons) * $iconPitch) - ($iconPitch - 256);
+	$viewBoxHeight = (ceil(num: count(value: $icons) / $maxPerRow)) * $iconPitch - ($iconPitch - 256);
+	$width = $viewBoxWidth * ($displaySize / ($iconPitch - 256));
+	$height = $viewBoxHeight * ($displaySize / ($iconPitch - 256));
 
 	header(header: "Content-Type: image/svg+xml");
 ?>
@@ -38,7 +43,7 @@
 				continue;
 			}
 	?>
-		<g transform="translate(<?= ($i % $maxPerRow) * $space; ?>, <?php echo floor(num: $i / $maxPerRow) * $space; ?>)">
+		<g transform="translate(<?= ($i % $maxPerRow) * $iconPitch ?>, <?= floor(num: $i / $maxPerRow) * $iconPitch ?>)">
 			<?= str_replace(
 				search: "{color}",
 				replace: $backgroundColor,
