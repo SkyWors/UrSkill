@@ -17,8 +17,8 @@
    <stop style="stop-color:#e6e6f9" offset=".6071" />
    <stop style="stop-color:#9999e6" offset="1" />
   </radialGradient>
-  <linearGradient id="vlph" x1="192.6" x2="234.9" y1="404.7" y2="331.9" gradientTransform="scale(1.083 .9232)" gradientUnits="userSpaceOnUse" ns1:href="#vlpa" />
-  <linearGradient id="vlpg" x1="188.6" x2="450.4" y1="785.1" y2="519.5" gradientTransform="scale(1.348 .7417)" gradientUnits="userSpaceOnUse" ns1:href="#vlpa" />
+  <linearGradient id="vlph" x1="192.6" x2="234.9" y1="404.7" y2="331.9" gradientTransform="scale(1.083 .9232)" gradientUnits="userSpaceOnUse" href="#vlpa" />
+  <linearGradient id="vlpg" x1="188.6" x2="450.4" y1="785.1" y2="519.5" gradientTransform="scale(1.348 .7417)" gradientUnits="userSpaceOnUse" href="#vlpa" />
   <linearGradient id="vlpf" x1="508.2" x2="271" y1="428.6" y2="659.8" gradientTransform="scale(1.201 .8329)" gradientUnits="userSpaceOnUse">
    <stop style="stop-color:#fff" offset="0" />
    <stop style="stop-color:#fff;stop-opacity:0" offset="1" />

@@ -3,27 +3,27 @@
 	<rect width="256" height="256" fill="{color}" rx="60" />
 	<g transform="translate(32.00,32.00) scale(0.77419)">
 		<defs id="defs1">
-			<linearGradient ns1:href="#linearGradient75" id="linearGradient76" x1="46.507286" y1="233.96443"
+			<linearGradient id="linearGradient76" x1="46.507286" y1="233.96443"
 				x2="164.27107" y2="131.59395" gradientUnits="userSpaceOnUse">
 				<stop style="stop-color:#005839;stop-opacity:1;" offset="0" id="stop75" />
 				<stop style="stop-color:#0095ff;stop-opacity:1;" offset="1" id="stop76" />
 			</linearGradient>
-			<linearGradient ns1:href="#linearGradient73" id="linearGradient74" x1="168.75529" y1="126.02123"
+			<linearGradient id="linearGradient74" x1="168.75529" y1="126.02123"
 				x2="153.84413" y2="166.98932" gradientUnits="userSpaceOnUse">
 				<stop style="stop-color:#07b6ff;stop-opacity:1;" offset="0" id="stop73" />
 				<stop style="stop-color:#037bf4;stop-opacity:0.99607843;" offset="1" id="stop74" />
 			</linearGradient>
-			<linearGradient  ns1:href="#linearGradient69" id="linearGradient70" x1="152.68674" y1="110.46834"
+			<linearGradient id="linearGradient70" x1="152.68674" y1="110.46834"
 				x2="88.847191" y2="188.70482" gradientUnits="userSpaceOnUse">
 				<stop style="stop-color:#06b4fc;stop-opacity:0.99607843;" offset="0" id="stop69" />
 				<stop style="stop-color:#ff0076;stop-opacity:1;" offset="1" id="stop70" />
 			</linearGradient>
-			<linearGradient ns1:href="#linearGradient67" id="linearGradient68" x1="91.532486" y1="181.06345"
+			<linearGradient id="linearGradient68" x1="91.532486" y1="181.06345"
 				x2="130.4798" y2="72.766411" gradientUnits="userSpaceOnUse">
 				<stop style="stop-color:#a33af3;stop-opacity:1;" offset="0" id="stop67" />
 				<stop style="stop-color:#07c0fe;stop-opacity:0.99607843;" offset="1" id="stop68" />
 			</linearGradient>
-			<linearGradient ns1:href="#linearGradient65" id="linearGradient66" x1="-59.294922" y1="236.81856"
+			<linearGradient id="linearGradient66" x1="-59.294922" y1="236.81856"
 				x2="79.040565" y2="88.035507" gradientUnits="userSpaceOnUse">
 				<stop style="stop-color:#006053;stop-opacity:1;" offset="0" id="stop65" />
 				<stop style="stop-color:#09c6ff;stop-opacity:0.99215686;" offset="1" id="stop66" />

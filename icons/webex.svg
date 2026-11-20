@@ -200,7 +200,7 @@
       <stop offset=".65" stop-color="#36c8b4" stop-opacity=".12" />
       <stop offset=".76" stop-color="#35c6b2" stop-opacity="0" />
     </radialGradient>
-    <radialGradient id="radial-gradient-8" cx="-702.99" cy="267.02" fx="-702.99" fy="267.02" r=".76" gradientTransform="translate(7418894.93 2737347.9) rotate(35.27) scale(10963.3 7691.4)" ns1:href="#radial-gradient-7" />
+    <radialGradient id="radial-gradient-8" cx="-702.99" cy="267.02" fx="-702.99" fy="267.02" r=".76" gradientTransform="translate(7418894.93 2737347.9) rotate(35.27) scale(10963.3 7691.4)" href="#radial-gradient-7" />
     <radialGradient id="radial-gradient-9" cx="-698.95" cy="258.55" fx="-698.95" fy="258.55" r=".76" gradientTransform="translate(9935.06 40737.43) rotate(100.97) scale(54.43 67.27)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#237f66" stop-opacity=".8" />
       <stop offset=".06" stop-color="#2c8c70" stop-opacity=".65" />
@@ -310,8 +310,8 @@
       <stop offset=".4" stop-color="#1a3d9c" stop-opacity=".42" />
       <stop offset=".7" stop-color="#1a3d9c" stop-opacity="0" />
     </radialGradient>
-    <radialGradient id="radial-gradient-17" cx="-703.32" cy="266.59" fx="-703.32" fy="266.59" r=".76" gradientTransform="translate(374982.21 7464343.27) rotate(98.69) scale(10490.7 5654.53)" ns1:href="#radial-gradient-16" />
-    <radialGradient id="radial-gradient-18" cx="-703.56" cy="266.7" fx="-703.56" fy="266.7" r=".76" gradientTransform="translate(46126.13 8839663.32) rotate(98.62) scale(12493.9 5159.7)" ns1:href="#radial-gradient-16" />
+    <radialGradient id="radial-gradient-17" cx="-703.32" cy="266.59" fx="-703.32" fy="266.59" r=".76" gradientTransform="translate(374982.21 7464343.27) rotate(98.69) scale(10490.7 5654.53)" href="#radial-gradient-16" />
+    <radialGradient id="radial-gradient-18" cx="-703.56" cy="266.7" fx="-703.56" fy="266.7" r=".76" gradientTransform="translate(46126.13 8839663.32) rotate(98.62) scale(12493.9 5159.7)" href="#radial-gradient-16" />
     <radialGradient id="radial-gradient-19" cx="-698.38" cy="258.51" fx="-698.38" fy="258.51" r=".76" gradientTransform="translate(19711.28 50120.68) rotate(83.09) scale(74.52 52)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#1a3d9c" />
       <stop offset=".16" stop-color="#1a3d9c" stop-opacity=".69" />
