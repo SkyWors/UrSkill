@@ -2,6 +2,10 @@ import sys
 import xml.etree.ElementTree as ET
 import os
 
+def is_bg(el):
+	# only our own background rect, not rects that belong to the logo
+	return el.tag.endswith("rect") and el.get("fill") == "{color}"
+
 def normalize_svg(input_path, output_path):
 	# Parse SVG
 	tree = ET.parse(input_path)
@@ -27,8 +31,8 @@ def normalize_svg(input_path, output_path):
 	# Compute scale to fit inside 192x192 (256 - 32*2)
 	margin = 32
 	scale = min((256 - margin * 2) / w, (256 - margin * 2) / h)
-	translate_x = margin + ((256 - margin * 2) - w * scale) / 2
-	translate_y = margin + ((256 - margin * 2) - h * scale) / 2
+	translate_x = margin + ((256 - margin * 2) - w * scale) / 2 - x * scale
+	translate_y = margin + ((256 - margin * 2) - h * scale) / 2 - y * scale
 
 	# Update main SVG attributes
 	root.set("width", "256")
@@ -37,7 +41,7 @@ def normalize_svg(input_path, output_path):
 	root.set("viewBox", "0 0 256 256")
 
 	# Check if rect already exists
-	has_rect = any(child.tag.endswith("rect") for child in root)
+	has_rect = any(is_bg(c) for c in root)
 	if not has_rect:
 		rect = ET.Element("rect", {
 			"width": "256",
@@ -48,7 +52,7 @@ def normalize_svg(input_path, output_path):
 		root.insert(0, rect)
 
 	# Wrap all children except the rect in a <g> with transform
-	children = [child for child in root if not child.tag.endswith("rect")]
+	children = [child for child in root if not is_bg(child)]
 	g = ET.Element("g", {
 		"transform": f"translate({translate_x:.2f},{translate_y:.2f}) scale({scale:.5f})"
 	})
