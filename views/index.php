@@ -24,6 +24,30 @@
 	$slug = fn($text) => trim(string: preg_replace(pattern: "/[^a-z0-9]+/", replacement: "-", subject: strtolower(string: $text)), characters: "-");
 	$escape = fn($text) => htmlspecialchars(string: $text);
 
+	// Remix Icon class per category, a folder for "Other" and any category added later
+	const CATEGORY_ICONS = [
+		"Languages" => "ri-code-s-slash-line",
+		"Frontend" => "ri-layout-line",
+		"Backend" => "ri-server-line",
+		"Mobile & Desktop" => "ri-device-line",
+		"Databases" => "ri-database-2-line",
+		"Cloud & DevOps" => "ri-cloud-line",
+		"Tools & Testing" => "ri-tools-line",
+		"Editors & IDEs" => "ri-terminal-box-line",
+		"AI" => "ri-sparkling-line",
+		"Data" => "ri-bar-chart-box-line",
+		"Design & Creative" => "ri-palette-line",
+		"Office & Productivity" => "ri-briefcase-line",
+		"Operating Systems" => "ri-computer-line",
+		"Browsers" => "ri-global-line",
+		"Social & Community" => "ri-chat-smile-2-line",
+		"Game Dev" => "ri-gamepad-line",
+		"Minecraft" => "ri-box-3-line",
+		"Security" => "ri-shield-keyhole-line",
+		"Hardware & Network" => "ri-cpu-line",
+	];
+	$categoryIcon = fn($categoryName) => CATEGORY_ICONS[$categoryName] ?? "ri-folder-line";
+
 	define(constant_name: "ISSUE_URL", value: "https://github.com/SkyWors/UrSkill/issues/new?title=" . rawurlencode("Icon request: "));
 ?>
 
@@ -70,7 +94,7 @@
 				<nav>
 					<?php foreach ($categories as $categoryName => $categoryIcons) { ?>
 						<a class="side_link" href="#cat-<?= $slug($categoryName) ?>" data-cat="<?= $slug($categoryName) ?>">
-							<span><?= $escape($categoryName) ?></span><span class="count"><?= count($categoryIcons) ?></span>
+							<span class="side_name"><i class="<?= $categoryIcon($categoryName) ?>" aria-hidden="true"></i><?= $escape($categoryName) ?></span><span class="count"><?= count($categoryIcons) ?></span>
 						</a>
 					<?php } ?>
 				</nav>
@@ -110,7 +134,7 @@
 
 				<?php foreach ($categories as $categoryName => $categoryIcons) { ?>
 					<section class="category" id="cat-<?= $slug($categoryName) ?>" data-cat="<?= $slug($categoryName) ?>">
-						<h2><?= $escape($categoryName) ?> <span class="count"><?= count($categoryIcons) ?></span></h2>
+						<h2><button type="button" class="category_toggle" aria-expanded="true"><i class="ri-arrow-down-s-line"></i> <i class="<?= $categoryIcon($categoryName) ?>" aria-hidden="true"></i> <?= $escape($categoryName) ?> <span class="count"><?= count($categoryIcons) ?></span></button></h2>
 						<div class="icons_grid">
 							<?php foreach ($categoryIcons as $icon) {
 								$searchText = strtolower(implode(separator: "|", array: [$icon, ...($aliases[$icon] ?? []), $categoryName]));

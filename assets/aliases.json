@@ -117,6 +117,7 @@
 	"windows": ["os", "microsoft"],
 	"windowserver": ["os", "microsoft", "windows server"],
 	"apple": ["os", "macos", "ios"],
+	"ios": ["apple", "iphone", "os", "mobile"],
 	"bsd": ["os", "freebsd"],
 	"plan9": ["os"],
 
@@ -187,6 +188,11 @@
 	"cursor": ["ai", "ide", "editor", "cursor ide", "anysphere"],
 	"codex": ["ai", "openai", "openai codex", "agent", "cli"],
 	"claudecode": ["ai", "claude", "claude code", "anthropic", "agent", "cli"],
+	"mcp": ["ai", "model context protocol", "anthropic", "agent"],
+	"skill": ["ai", "agent skills", "skills", "anthropic", "claude", "agent"],
+	"dbeaver": ["database", "sql", "db client"],
+	"threads": ["meta", "instagram", "social"],
+	"thunderbird": ["mail", "email", "mozilla"],
 	"glm": ["ai", "llm", "z.ai", "zai", "zhipu", "chatglm"],
 
 	"wireshark": ["security", "network", "networking", "packet", "pcap", "sniffer"],

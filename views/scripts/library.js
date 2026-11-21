@@ -67,6 +67,7 @@ function filterIcons() {
 	$("#library_status").textContent = isFiltered
 		? `${totalVisible} icon${totalVisible === 1 ? "" : "s"} found`
 		: `${iconItems.length} icons · click to add, Enter in search adds the first match`;
+	renderCategoryCollapse(isFiltered);
 	$("#empty_list").hidden = totalVisible > 0;
 	$("#empty_query").textContent = query ? `“${query}”` : "your filter";
 	$("#propose_link").hidden = !query;
@@ -128,6 +129,50 @@ document.addEventListener("keydown", (event) => {
 if (matchMedia("(pointer: fine)").matches) {
 	searchInput.focus({ preventScroll: true });
 }
+
+/* ---------- Category collapse ---------- */
+
+const COLLAPSED_KEY = "collapsed_categories";
+
+function loadCollapsedCategories() {
+	try {
+		return JSON.parse(localStorage.getItem(COLLAPSED_KEY)) ?? [];
+	} catch {
+		// Storage is blocked or corrupted: start with every category open
+		return [];
+	}
+}
+
+const collapsedCategories = new Set(loadCollapsedCategories());
+
+// A search or the "selected only" filter shows every match, so collapsing only applies to the full list
+function renderCategoryCollapse(isFiltered) {
+	categorySections.forEach((section) => {
+		const isCollapsed = !isFiltered && collapsedCategories.has(section.dataset.cat);
+		const toggle = section.querySelector(".category_toggle");
+		section.querySelector(".icons_grid").hidden = isCollapsed;
+		toggle.setAttribute("aria-expanded", !isCollapsed);
+		toggle.disabled = Boolean(isFiltered);
+	});
+}
+
+categorySections.forEach((section) => {
+	section.querySelector(".category_toggle").addEventListener("click", () => {
+		const category = section.dataset.cat;
+
+		if (!collapsedCategories.delete(category)) {
+			collapsedCategories.add(category);
+		}
+
+		try {
+			localStorage.setItem(COLLAPSED_KEY, JSON.stringify([...collapsedCategories]));
+		} catch {
+			// Storage is blocked: the collapsed state just isn't remembered
+		}
+
+		filterIcons();
+	});
+});
 
 /* ---------- Category navigation ---------- */
 

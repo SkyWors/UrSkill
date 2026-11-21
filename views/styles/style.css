@@ -368,6 +368,8 @@ input.field, select.field { padding: 0 10px; }
 	&.active { background: var(--accent-subtle); color: var(--accent-text); }
 	&.active .count { background: var(--accent-solid); color: var(--on-accent); }
 	&.empty { opacity: 0.4; pointer-events: none; }
+
+	.side_name { display: flex; align-items: center; gap: 8px; }
 }
 
 /* ---------- Library ---------- */
@@ -405,12 +407,38 @@ input.field, select.field { padding: 0 10px; }
 
 .category {
 	h2 {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		padding: 20px 0 10px;
+		position: sticky;
+		/* Tucked under the toolbar: at fractional zoom, rounding left a slit where icons showed through */
+		top: calc(var(--sticky-h, 120px) - 2px);
+		z-index: 5;
+		background: var(--bg);
 		font-size: 13px;
 		font-weight: 600;
+		container-type: scroll-state;
+	}
+}
+
+.category_toggle {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	width: 100%;
+	padding: 20px 0 10px;
+	border: none;
+	background: none;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+
+	&:disabled { cursor: default; }
+
+	i:first-child { transition: transform 120ms; }
+
+	&[aria-expanded="false"] i:first-child { transform: rotate(-90deg); }
+
+	/* Once stuck, icons scroll under the header: a line like the toolbar's makes the cut look intended */
+	@container scroll-state(stuck: top) {
+		box-shadow: 0 1px 0 var(--border);
 	}
 }
 
