@@ -1,7 +1,7 @@
 <?php
 	define(constant_name: "APP_NAME", value: "UrSkill");
 
-	if (empty($_GET)) {
+	if (empty($_GET["icons"])) {
 		include __DIR__ . "/views/index.php";
 		exit;
 	}
