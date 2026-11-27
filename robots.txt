@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+# Badge URLs (/?icons=...) are images, not pages
+Disallow: /?
+
+Sitemap: https://urskill.erickpaoletti.fr/sitemap.xml

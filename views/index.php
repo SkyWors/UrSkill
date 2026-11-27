@@ -49,6 +49,53 @@
 	$categoryIcon = fn($categoryName) => CATEGORY_ICONS[$categoryName] ?? "ri-folder-line";
 
 	define(constant_name: "ISSUE_URL", value: "https://github.com/SkyWors/UrSkill/issues/new?title=" . rawurlencode("Icon request: "));
+
+	// Hard-coded rather than read from the Host header, so canonical and og:url can't be spoofed
+	define(constant_name: "SITE_URL", value: "https://urskill.erickpaoletti.fr");
+
+	$title = APP_NAME . " - Skill icon badge generator";
+	$description = "Build an SVG badge of your skills from " . count(value: $iconNames) . " icons and embed it in your GitHub README, portfolio or website with one URL.";
+	$imageAlt = "UrSkill logo above a badge of programming language and tool icons";
+
+	$structuredData = [
+		"@context" => "https://schema.org",
+		"@graph" => [
+			[
+				"@type" => "WebSite",
+				"@id" => SITE_URL . "/#website",
+				"name" => APP_NAME,
+				"url" => SITE_URL . "/",
+				"inLanguage" => "en",
+				"publisher" => ["@id" => SITE_URL . "/#author"],
+			],
+			[
+				"@type" => "Person",
+				"@id" => SITE_URL . "/#author",
+				"name" => "Erick Paoletti",
+				"url" => "https://erickpaoletti.fr",
+				"sameAs" => ["https://github.com/SkyWors"],
+			],
+			[
+				"@type" => "WebApplication",
+				"name" => APP_NAME,
+				"url" => SITE_URL . "/",
+				"image" => SITE_URL . "/assets/og-image.png",
+				"description" => $description,
+				"applicationCategory" => "DeveloperApplication",
+				"operatingSystem" => "Any",
+				"inLanguage" => "en",
+				"isAccessibleForFree" => true,
+				"offers" => ["@type" => "Offer", "price" => "0", "priceCurrency" => "EUR"],
+				"author" => ["@id" => SITE_URL . "/#author"],
+				"license" => "https://creativecommons.org/licenses/by/4.0/",
+				"codeRepository" => "https://github.com/SkyWors/UrSkill",
+			],
+		],
+	];
+
+	$env = parse_ini_file('.env');
+	$umamiUrl = rtrim(string: (string) $env["UMAMI_URL"], characters: "/");
+	$umamiWebsiteId = (string) $env["UMAMI_WEBSITE_ID"];
 ?>
 
 <!DOCTYPE html>
@@ -57,10 +104,38 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="darkreader-lock">
-		<title><?= APP_NAME ?> - Skill icon badge generator</title>
-		<meta name="description" content="Build an SVG badge of your skills from <?= count($iconNames) ?> icons and embed it anywhere.">
+		<title><?= $escape($title) ?></title>
+		<meta name="description" content="<?= $escape($description) ?>">
+		<meta name="author" content="Erick Paoletti">
+		<meta name="robots" content="index, follow, max-image-preview:large">
+		<meta name="theme-color" content="#fff3ea" media="(prefers-color-scheme: light)">
+		<meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)">
+		<link rel="canonical" href="<?= SITE_URL ?>/">
 		<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 		<link rel="icon" href="favicon.ico" sizes="any">
+		<link rel="apple-touch-icon" href="assets/urskill.png">
+		<meta property="og:type" content="website">
+		<meta property="og:site_name" content="<?= APP_NAME ?>">
+		<meta property="og:title" content="<?= $escape($title) ?>">
+		<meta property="og:description" content="<?= $escape($description) ?>">
+		<meta property="og:url" content="<?= SITE_URL ?>/">
+		<meta property="og:image" content="<?= SITE_URL ?>/assets/og-image.png">
+		<meta property="og:image:type" content="image/png">
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="630">
+		<meta property="og:image:alt" content="<?= $imageAlt ?>">
+		<meta property="og:locale" content="en_US">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@SkyWors">
+		<meta name="twitter:creator" content="@SkyWors">
+		<meta name="twitter:title" content="<?= $escape($title) ?>">
+		<meta name="twitter:description" content="<?= $escape($description) ?>">
+		<meta name="twitter:image" content="<?= SITE_URL ?>/assets/og-image.png">
+		<meta name="twitter:image:alt" content="<?= $imageAlt ?>">
+		<script type="application/ld+json"><?= json_encode(value: $structuredData, flags: JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) ?></script>
+		<?php if ($umamiUrl && $umamiWebsiteId) { ?>
+			<script defer src="<?= $escape($umamiUrl) ?>/script.js" data-website-id="<?= $escape($umamiWebsiteId) ?>"></script>
+		<?php } ?>
 		<script>document.documentElement.dataset.theme = localStorage.getItem("theme") || "system";</script>
 		<link rel="stylesheet" href="views/styles/style.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.9.1/fonts/remixicon.css">
@@ -80,7 +155,7 @@
 				</a>
 
 				<nav class="nav_links">
-					<a class="nav_link" href="<?= ISSUE_URL ?>" target="_blank"><i class="ri-lightbulb-line"></i><span>Propose an icon</span></a>
+					<a class="nav_link" href="<?= ISSUE_URL ?>" target="_blank" data-umami-event="propose-icon"><i class="ri-lightbulb-line"></i><span>Propose an icon</span></a>
 					<button type="button" class="nav_link" id="api_open"><i class="ri-code-s-slash-line"></i><span>API</span></button>
 					<a class="nav_link" href="https://github.com/SkyWors/UrSkill" target="_blank"><i class="ri-github-line"></i><span>GitHub</span></a>
 					<button type="button" class="icon_button theme_button" title="Theme: light / dark / system"><i class="ri-sun-line"></i></button>
@@ -129,7 +204,7 @@
 						<h1 id="library_title">All icons</h1>
 						<p class="muted" id="library_status"><?= count($iconNames) ?> icons · click to add, Enter in search adds the first match</p>
 					</div>
-					<a class="button" href="<?= ISSUE_URL ?>" target="_blank"><i class="ri-lightbulb-line"></i> Missing an icon?</a>
+					<a class="button" href="<?= ISSUE_URL ?>" target="_blank" data-umami-event="propose-icon"><i class="ri-lightbulb-line"></i> Missing an icon?</a>
 				</div>
 
 				<?php foreach ($categories as $categoryName => $categoryIcons) { ?>
@@ -151,7 +226,7 @@
 				<div class="empty_list" id="empty_list" hidden>
 					<i class="ri-search-line"></i>
 					<p>No icons match <strong id="empty_query"></strong>.</p>
-					<a class="button primary" id="propose_link" href="<?= ISSUE_URL ?>" target="_blank"><i class="ri-lightbulb-line"></i> Propose this icon</a>
+					<a class="button primary" id="propose_link" href="<?= ISSUE_URL ?>" target="_blank" data-umami-event="propose-icon"><i class="ri-lightbulb-line"></i> Propose this icon</a>
 				</div>
 			</main>
 
@@ -209,7 +284,7 @@
 					<div class="field code_box">
 						<textarea id="result_url" readonly spellcheck="false" rows="3" aria-label="Embed code"></textarea>
 					</div>
-					<button type="button" class="button primary block" id="copy"><i class="ri-file-copy-line"></i> Copy code</button>
+					<button type="button" class="button primary block" id="copy" data-umami-event="copy-code"><i class="ri-file-copy-line"></i> Copy code</button>
 
 					<details class="import">
 						<summary>Import an existing badge</summary>
@@ -224,7 +299,7 @@
 
 		<div class="mobile_bar">
 			<a href="#builder"><strong id="mobile_count">0</strong> selected · View badge</a>
-			<button type="button" class="button primary" data-copy><i class="ri-file-copy-line"></i> Copy</button>
+			<button type="button" class="button primary" data-copy data-umami-event="copy-code"><i class="ri-file-copy-line"></i> Copy</button>
 		</div>
 
 		<div class="toast" id="toast" role="status" hidden></div>

@@ -1,0 +1,24 @@
+# UrSkill
+
+> UrSkill is a free skill icon badge generator. Pick icons (programming languages, frameworks, tools, platforms), and UrSkill returns one SVG image you can embed in a GitHub README, a portfolio or any web page with a single URL.
+
+## Pages
+
+- [Builder](https://urskill.erickpaoletti.fr/): search the icon library, arrange icons, pick the tile color and copy the HTML, Markdown or URL
+- [Source code](https://github.com/SkyWors/UrSkill): PHP, no build step, CC BY 4.0
+- [Request an icon](https://github.com/SkyWors/UrSkill/issues/new): open an issue titled "Icon request: <name>"
+
+## Badge API
+
+`GET https://urskill.erickpaoletti.fr/?icons=python,javascript,react&max_per_row=10&background_color=252525` returns `image/svg+xml`.
+
+- `icons`: comma-separated icon names (the file names in https://github.com/SkyWors/UrSkill/tree/main/icons, without `.svg`). An empty entry (`a,,b`) leaves a gap.
+- `max_per_row`: icons per row, default `10`.
+- `background_color`: tile color as hex without `#`, default `252525`.
+
+Markdown example: `![My skills](https://urskill.erickpaoletti.fr/?icons=python,javascript,react)`
+
+## Icons
+
+- [Icons by category](https://github.com/SkyWors/UrSkill/blob/main/assets/categories.json): the most common icons grouped by category
+- [All icon files](https://github.com/SkyWors/UrSkill/tree/main/icons): every file name (without `.svg`) is a valid `icons` value
